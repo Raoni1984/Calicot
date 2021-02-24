@@ -26,7 +26,8 @@ namespace Calicot
                 options.UseSqlServer(Configuration.GetConnectionString("CalicotDb"));
             });
 
-            services.AddScoped<IProduitData, SqlProduitData>();
+            //services.AddScoped<IProduitData, SqlProduitData>();
+            services.AddScoped<IProduitData, InMemoryProduitData>();
 
             services.AddRazorPages();
 
