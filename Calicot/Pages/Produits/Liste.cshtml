@@ -1,0 +1,56 @@
+﻿@page
+@model Calicot.Pages.Produits.ListeModel
+@{
+}
+
+<h1>Liste de Produits</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control col-md-6 col-sm-10" asp-for="RechercheNom" />
+            <span class="input-group-btn col-md-3 offset-md-1 col-sm-2">
+                <button class="btn btn-outline-primary">
+                    <i class="fas fa-search">Rechercher</i>
+                </button>
+            </span>
+
+        </div>
+    </div>
+
+</form>
+
+<table class="table">
+    <tr class="font-weight-bolder">
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var produit in Model.Produits)
+    {
+        <tr>
+            <td class="font-italic">@produit.Nom</td>
+            <td>@produit.Description</td>
+            <td>@produit.Prix</td>
+            <td>
+                <a class="btn btn-light"
+                   asp-page="./Detail"
+                   asp-route-produitId="@produit.Id">
+                    Voir details
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-light"
+                   asp-page="./Editer"
+                   asp-route-produitId="@produit.Id">
+                    Editer
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-page="./Editer" class="btn btn-primary">+ Nouveau Produit</a>

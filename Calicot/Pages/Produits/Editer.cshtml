@@ -1,0 +1,39 @@
+﻿@page "{produitId:int?}"
+
+@model Calicot.Pages.Produits.EditerModel
+@{
+}
+
+<h2>Editer @Model.Produit.Nom</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Produit.Id" />
+
+    <div class="form-group">
+        <label asp-for="Produit.Nom"></label>
+        <input asp-for="Produit.Nom" class="form-control" />
+        <span class="text-danger" asp-validation-for="Produit.Nom"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Produit.Description"></label>
+        <input asp-for="Produit.Description" class="form-control" />
+        <span class="text-danger" asp-validation-for="Produit.Description"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Produit.Prix"></label>
+        <input asp-for="Produit.Prix" class="form-control" />
+        <span class="text-danger" asp-validation-for="Produit.Prix"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produit.Photo"></label>
+        <input asp-for="Produit.Photo" class="form-control" />
+        <span class="text-danger" asp-validation-for="Produit.Photo"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    <a asp-page="./Liste" class="btn btn-outline-dark">Annuler</a>
+</form>
+
+
